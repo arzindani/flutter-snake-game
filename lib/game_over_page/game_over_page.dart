@@ -26,7 +26,7 @@ class GameOverScreen extends StatelessWidget {
             const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () => {
-                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => const GamePage()))
+                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => GamePage()))
               },
               child: const Text('Restart'),
             ),

@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                 ),
                 OutlinedButton.icon(
                     onPressed: () => {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => const GamePage()))
+                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => GamePage()))
                     },
                     icon: const Icon(
                       Icons.play_circle_filled,
