@@ -14,7 +14,7 @@ class GameOverScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget> [
+          children: <Widget>[
             const Text(
               'Game Over',
               style: TextStyle(fontSize: 32),
@@ -27,16 +27,11 @@ class GameOverScreen extends StatelessWidget {
             const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () => {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => GamePage()))
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => GamePage()))
               },
               child: const Text('Restart'),
-            ),
-            ElevatedButton(
-              onPressed: () => {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => HomePage()))
-              },
-              child: const Text('Home'),
-            ),
+            )
           ],
         ),
       ),
