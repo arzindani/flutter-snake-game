@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../game_page/game_page.dart';
+
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,8 +17,7 @@ class HomePage extends StatelessWidget {
           color: Colors.blue,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+              children: <Widget> [
                 const SizedBox(
                   height: 50,
                 ),
@@ -31,7 +34,9 @@ class HomePage extends StatelessWidget {
                   height: 50,
                 ),
                 OutlinedButton.icon(
-                    onPressed: () => {},
+                    onPressed: () => {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => const GamePage()))
+                    },
                     icon: const Icon(
                       Icons.play_circle_filled,
                       color: Colors.white,
