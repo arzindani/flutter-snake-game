@@ -11,6 +11,11 @@ class GameOverScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          title: Text('SnakeGameFlutter',
+              style: TextStyle(color: Colors.white, fontSize: 20.0)),
+          centerTitle: false,
+          backgroundColor: Colors.redAccent),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
