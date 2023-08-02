@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../game_over_page/game_over_page.dart';
+
 class GamePage extends StatefulWidget {
   const GamePage({super.key});
 
@@ -104,10 +106,7 @@ class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
           setState(() {
             _hasStarted = !_hasStarted;
           });
-          const AlertDialog(
-              content: Text(
-            'Game Over',
-          ));
+          Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => GameOverScreen(score: _playerScore)));
         }
       });
     }
