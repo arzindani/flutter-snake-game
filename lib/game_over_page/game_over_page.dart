@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../game_page/game_page.dart';
-import '../home_page/home_page.dart';
+import '../globals/global_variables.dart';
 
 class GameOverScreen extends StatelessWidget {
   const GameOverScreen({super.key, required this.score});
@@ -11,35 +11,36 @@ class GameOverScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text('SnakeGameFlutter',
-              style: TextStyle(color: Colors.white, fontSize: 20.0)),
-          centerTitle: false,
-          backgroundColor: Colors.redAccent),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Game Over',
-              style: TextStyle(fontSize: 32),
+        appBar: AppBar(
+            title: const Text('SnakeGameFlutter',
+                style: TextStyle(color: Colors.white, fontSize: 20.0)),
+            centerTitle: false),
+        body: Container(
+          color: color_dict['primary_color'],
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text(
+                  'Game Over',
+                  style: TextStyle(fontSize: 32, color: Colors.white),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'Score: $score',
+                  style: const TextStyle(fontSize: 24, color: Colors.white),
+                ),
+                const SizedBox(height: 32),
+                ElevatedButton(
+                  onPressed: () => {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (BuildContext context) => GamePage()))
+                  },
+                  child: const Text('Restart'),
+                )
+              ],
             ),
-            const SizedBox(height: 16),
-            Text(
-              'Score: $score',
-              style: const TextStyle(fontSize: 24),
-            ),
-            const SizedBox(height: 32),
-            ElevatedButton(
-              onPressed: () => {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => GamePage()))
-              },
-              child: const Text('Restart'),
-            )
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 }

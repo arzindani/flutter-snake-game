@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../game_page/game_page.dart';
+import '../globals/global_variables.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,7 +15,7 @@ class HomePage extends StatelessWidget {
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: Colors.blue,
+          color: color_dict['primary_color'],
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget> [
