@@ -16,7 +16,7 @@ class GameOverScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.white, fontSize: 20.0)),
             centerTitle: false),
         body: Container(
-          color: color_dict['primary_color'],
+          color: colorDict['primary_color'],
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +34,7 @@ class GameOverScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () => {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => GamePage()))
+                        builder: (BuildContext context) => const GamePage()))
                   },
                   child: const Text('Restart'),
                 )

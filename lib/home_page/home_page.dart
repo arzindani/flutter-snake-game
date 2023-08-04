@@ -15,10 +15,10 @@ class HomePage extends StatelessWidget {
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: color_dict['primary_color'],
+          color: colorDict['primary_color'],
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget> [
+              children: <Widget>[
                 const SizedBox(
                   height: 50,
                 ),
@@ -35,15 +35,18 @@ class HomePage extends StatelessWidget {
                   height: 50,
                 ),
                 OutlinedButton.icon(
-                    onPressed: () => {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => GamePage()))
-                    },
-                    icon: const Icon(
-                      Icons.play_circle_filled,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    label: const Text('Play', style: TextStyle(color: Colors.white, fontSize: 20)),),
+                  onPressed: () => {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => const GamePage()))
+                  },
+                  icon: const Icon(
+                    Icons.play_circle_filled,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  label: const Text('Play',
+                      style: TextStyle(color: Colors.white, fontSize: 20)),
+                ),
               ]),
         ));
   }

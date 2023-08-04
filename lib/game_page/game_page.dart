@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_fields
+
 import 'dart:async';
 import 'dart:math';
 
@@ -6,8 +8,10 @@ import '../game_over_page/game_over_page.dart';
 import '../globals/global_variables.dart';
 
 class GamePage extends StatefulWidget {
+  const GamePage({super.key});
+
   @override
-  _GamePageState createState() => _GamePageState();
+  State<GamePage> createState() => _GamePageState();
 }
 
 class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
@@ -122,14 +126,14 @@ class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
         appBar: AppBar(
           title: Text('SnakeGameFlutter',
               style: TextStyle(
-                  color: color_dict['appbar_text_color'], fontSize: 20.0)),
+                  color: colorDict['appbar_text_color'], fontSize: 20.0)),
           centerTitle: false,
           actions: <Widget>[
             Center(
                 child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Text('Score: $_playerScore',
-                  style: TextStyle(fontSize: 16.0)),
+                  style: const TextStyle(fontSize: 16.0)),
             ))
           ],
         ),
@@ -138,7 +142,6 @@ class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
             elevation: 5,
             label: Text(
               _hasStarted ? 'Start' : 'Pause',
-              style: TextStyle(),
             ),
             onPressed: () {
               setState(() {
@@ -154,7 +157,7 @@ class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
             icon: AnimatedIcon(
                 icon: AnimatedIcons.play_pause, progress: _snakeAnimation)),
         body: Container(
-          color: color_dict['primary_color'],
+          color: colorDict['primary_color'],
           child: Center(
             child: GestureDetector(
               onVerticalDragUpdate: (DragUpdateDetails drag) {
@@ -174,7 +177,7 @@ class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
                 }
               },
               child: Container(
-                color: color_dict['game_border_color'],
+                color: colorDict['game_border_color'],
                 width: MediaQuery.of(context).size.width,
                 child: GridView.builder(
                   shrinkWrap: true,
@@ -186,10 +189,10 @@ class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
                   itemBuilder: (BuildContext context, int index) {
                     return Center(
                       child: Container(
-                        color: color_dict['game_color'],
+                        color: colorDict['game_color'],
                         padding: _snake.contains(index)
-                            ? EdgeInsets.all(1)
-                            : EdgeInsets.all(0),
+                            ? const EdgeInsets.all(1)
+                            : const EdgeInsets.all(0),
                         child: ClipRRect(
                           borderRadius: index == _snakeFoodPosition ||
                                   index == _snake.last
@@ -199,10 +202,10 @@ class _GamePageState extends State<GamePage> with TickerProviderStateMixin {
                                   : BorderRadius.circular(1),
                           child: Container(
                               color: _snake.contains(index)
-                                  ? color_dict['snake_color']
+                                  ? colorDict['snake_color']
                                   : index == _snakeFoodPosition
-                                      ? color_dict['apple_color']
-                                      : color_dict['game_color']),
+                                      ? colorDict['apple_color']
+                                      : colorDict['game_color']),
                         ),
                       ),
                     );
